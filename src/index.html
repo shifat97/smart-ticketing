@@ -5,11 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/output.css">
+    <script src="https://kit.fontawesome.com/47c063a947.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 
-<body>
-    
+<body class="bg-white">
+    <main class="2xl:container mx-auto mt-[55px] px-16">
+        <header class="flex items-center justify-between">
+            <div>
+                <h1 class="text-36 font-bold text-black">P-Ticket</h1>
+            </div>
+            <div class="hidden lg:block">
+                <ul class="text-gray text-18 flex items-center gap-[56px]">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Destination</a></li>
+                    <li><a href="">Search</a></li>
+                </ul>
+            </div>
+            <div class="hidden lg:block">
+                <button
+                    class="text-green bg-lightgreen border border-lightgreen px-30 py-16 rounded-12 flex items-center gap-[10px]">
+                    <span>Bus</span>
+                    <img src="../images/bus-icon.png" alt="">
+                </button>
+            </div>
+            <div id="nav-3-bar" class="block lg:hidden">
+                <i class="fa-solid fa-bars fa-2xl"></i>
+            </div>
+            <div id="nav-3-items" class="hidden lg:hidden bg-white absolute right-12 top-[65px] px-8">
+                <ul class="text-gray text-18 flex flex-col gap-4">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Destination</a></li>
+                    <li><a href="">Search</a></li>
+                </ul>
+                <button
+                    class="text-green bg-lightgreen border border-lightgreen px-30 py-16 rounded-12 flex items-center gap-[10px] mt-6">
+                    <span>Bus</span>
+                    <img src="../images/bus-icon.png" alt="">
+                </button>
+            </div>
+        </header>
+    </main>
     <script src="script.js"></script>
 </body>
 
