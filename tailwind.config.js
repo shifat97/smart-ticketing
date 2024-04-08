@@ -8,7 +8,9 @@ module.exports = {
         16: '16px',
         20: '20px',
         24: '24px',
-        30: '30px'
+        30: '30px',
+        32: '32px',
+        50: '50px',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
@@ -31,7 +33,7 @@ module.exports = {
         green: '#1DD100',
       },
       backgroundColor: {
-        white: 'FFF',
+        white: '#FFF',
         lightgreen: 'rgba(29, 209, 0, 0.10)',
         green: '#1DD100',
         yellow: '#FFBF0F',
@@ -49,7 +51,7 @@ module.exports = {
         88: '88px'
       },
       borderColor: {
-        green: '3px solid var(--primary-700, #1DD100)',
+        green: '#1DD100',
         lightgreen: '1px solid rgba(29, 209, 0, 0.40)'
       },
     },
