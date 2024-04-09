@@ -1,3 +1,7 @@
+const mainContainer = document.getElementById('main-container');
+const seatContainer = document.getElementById('seat-container');
+const footerContainer = document.getElementById('footer-container');
+const successContainer = document.getElementById('success-container');
 const nav3bar = document.getElementById('nav-3-bar');
 const nav3items = document.getElementById('nav-3-items');
 const seatAvailable = document.getElementById('seat-available');
@@ -13,6 +17,10 @@ const couponInputElement = document.getElementById('coupon');
 const couponInputContainer = document.getElementById('coupon-input-container');
 const discountPrice = document.getElementById('discount-price');
 const showDiscountPrice = document.getElementById('show-discount-price');
+const userPhone = document.getElementById('userphone');
+const numberWarning = document.getElementById('number-warning');
+const paymentNext = document.getElementById('payment-next');
+const continueButton = document.getElementById('continue-button');
 
 let bookedSeatList = [];
 let maxBooking = 0;
@@ -44,7 +52,7 @@ function getSeatById(seatId) {
     }
 
     bookedSeatList.push(seatId); // add seat to bookedSeatList = [];
-    totalSeatsLeft(); // Decrement total seat left by 1
+    totalSeatsLeft(); // Check for total seat left
     addToBookingList(seatId);
     const getSeat = document.getElementById(seatId);
     getSeat.classList.add('bg-green'); // Adds green color after click on seats
@@ -53,7 +61,7 @@ function getSeatById(seatId) {
 // This function decrement total seat by 1.
 function totalSeatsLeft() {
     const totalSeat = parseInt(seatAvailable.textContent);
-    const remainSeat = totalSeat - 1; // Decrease total seat by 1
+    const remainSeat = totalSeat - 1; // Decrease total seat available by 1
     seatAvailable.textContent = remainSeat;
 }
 
@@ -133,3 +141,40 @@ function calculateTotalPrice() {
 function setGranTotalPrice(grandTotalPrice) {
     grandTotal.textContent = grandTotalPrice; // Add total price to grand total
 }
+
+// This event check if user eligible for next process or not.
+// User must book 1 seat and must submit his number.
+userPhone.addEventListener('keyup', function () {
+    const getUserPhone = userPhone.value;
+    if (isNaN(getUserPhone) || getUserPhone == '') { // Checks if number field is empty 
+        numberWarning.classList.remove('hidden');
+        return;
+    }
+    numberWarning.classList.add('hidden');
+    paymentNext.removeAttribute('disabled');
+
+    paymentNext.addEventListener('click', function () {
+        if (maxBooking < 1) { // Check for at least 1 seat booking
+            alert('Please book at least 1 seat!');
+            return;
+        }
+        nextProcess();
+    })
+})
+
+
+// Hide the main body and show the modal.
+function nextProcess() {
+    mainContainer.classList.add('hidden');
+    seatContainer.classList.add('hidden');
+    footerContainer.classList.add('hidden');
+    successContainer.classList.remove('hidden');
+}
+
+// Hide the modal and show the main body.
+continueButton.addEventListener('click', function () {
+    mainContainer.classList.remove('hidden');
+    seatContainer.classList.remove('hidden');
+    footerContainer.classList.remove('hidden');
+    successContainer.classList.add('hidden');
+})
